@@ -12,8 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="apMainPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="apMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1280.0" stylesheets="@../DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
         <MenuBar layoutX="175.0" layoutY="14.0" prefHeight="29.0" prefWidth="100.0" styleClass="myMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <menus>
@@ -39,15 +40,15 @@
                 <ListView fx:id="lvLlistaCartes" prefHeight="371.0" prefWidth="280.0" styleClass="left-container" />
             <Pane prefHeight="371.0" prefWidth="488.0">
                <children>
-                      <ImageView fx:id="ivCartes" fitHeight="249.0" fitWidth="203.0" pickOnBounds="true" preserveRatio="true" />
-                  <TextField fx:id="cardName" layoutX="14.0" layoutY="260.0" />
-                  <Group fx:id="colors" layoutX="231.0" layoutY="41.0">
+                      <ImageView fx:id="ivCartes" fitHeight="249.0" fitWidth="203.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                  <TextField fx:id="cardName" layoutX="41.0" layoutY="276.0" />
+                  <Group fx:id="colors" layoutX="231.0" layoutY="55.0">
                      <children>
-                        <CheckBox layoutX="8.0" mnemonicParsing="false" selected="true" text="Black" />
-                        <CheckBox layoutX="5.0" layoutY="17.0" mnemonicParsing="false" selected="true" text="Blue" />
-                        <CheckBox layoutX="6.0" layoutY="34.0" mnemonicParsing="false" selected="true" text="Red" />
-                        <CheckBox layoutY="51.0" mnemonicParsing="false" selected="true" text="Green" />
-                        <CheckBox layoutX="6.0" layoutY="68.0" mnemonicParsing="false" selected="true" text="White" />
+                         <CheckBox layoutX="1.0" layoutY="34.0" mnemonicParsing="false" selected="true" text="Red" />
+                         <CheckBox layoutX="1.0" layoutY="51.0" mnemonicParsing="false" selected="true" text="Green" />
+                         <CheckBox layoutX="1.0" layoutY="68.0" mnemonicParsing="false" selected="true" text="White" />
+                         <CheckBox layoutX="1.0" mnemonicParsing="false" selected="true" text="Black" />
+                         <CheckBox layoutY="17.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="44.0" selected="true" text="Blue" />
                      </children>
                   </Group>
                   <Group fx:id="rarities" layoutX="330.0" layoutY="41.0">
@@ -61,6 +62,11 @@
                      </children>
                   </Group>
                   <Button layoutX="289.0" layoutY="154.0" mnemonicParsing="false" onAction="#refresh" text="Filter" />
+
+                  <Text layoutX="231.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Colors" />
+                  <Text layoutX="332.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rarities" />
+
+
                </children>
             </Pane>
             </children>

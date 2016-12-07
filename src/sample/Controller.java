@@ -88,6 +88,7 @@ public class Controller {
         if(filter.length() > 0) {
             filter = filter.substring(0, filter.length() - 1);
         }
+        filter = filter.replace(" ","%20");
         return filter;
     }
 
