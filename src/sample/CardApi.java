@@ -68,8 +68,8 @@ public class CardApi {
         ArrayList<Card> cards = new ArrayList<>();
 
         try {
-
-            JSONObject jsonO = new JSONObject(HttpUtils.get(url+"?"+filter));
+            System.out.println(url+"?"+filter);
+            JSONObject jsonO = new JSONObject(HttpUtils.get(url+"&"+filter));
             JSONArray jsonCards = jsonO.getJSONArray("cards");
 
             for (int i = 0; i < jsonCards.length(); ++i) {

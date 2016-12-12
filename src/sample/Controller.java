@@ -37,8 +37,11 @@ public class Controller {
                     if (empty) {
                         setGraphic(null);
                     } else {
-                        Image image = new Image(item.getImageUrl() , 75 , 75 , true , true , true);
-                        setGraphic(new ImageView(image));
+                        System.out.println(item.toString());
+                        if(item.getImageUrl() != null) {
+                            Image image = new Image(item.getImageUrl(), 75, 75, true, true, true);
+                            setGraphic(new ImageView(image));
+                        }
                         setText(item.getName());
                     }
                 }
@@ -55,9 +58,10 @@ public class Controller {
         // Handle ListView selection changes with a listener
         lvLlistaCartes.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
-                    System.out.println(newValue.getImageUrl());
-                    Image image = new Image(newValue.getImageUrl());
-                    ivCartes.setImage(image);
+                    if(!newValue.getImageUrl().isEmpty()) {
+                        Image image = new Image(newValue.getImageUrl());
+                        ivCartes.setImage(image);
+                    }
                     cardName.setText(newValue.getName());
                 }
         );
@@ -69,11 +73,13 @@ public class Controller {
     public void refresh(){
         String colors = getFilterColors();
         String rarities = getFilterRarity();
-
+        lvLlistaCartes.getItems().removeAll();
+        System.out.println("lvLlista: "+lvLlistaCartes.getItems().size());
         String filter = "colors="+colors+"&rarity="+rarities;
         cartes = CardApi.getCards(filter);
         ObservableList<Card> cards = FXCollections.observableArrayList(cartes);
-        lvLlistaCartes.setItems(cards);
+        lvLlistaCartes.getItems().setAll(cards);
+
 
     }
 
